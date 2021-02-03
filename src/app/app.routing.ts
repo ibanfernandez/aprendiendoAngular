@@ -11,7 +11,7 @@ import { HomeComponent } from "./home/home.component";
 //Array configuración de rutas
 const appRoutes: Routes = [
     {
-        path: '', component: HomeComponent
+        path: 'home', component: HomeComponent
     },
     {
         path: 'zapatillas', component: ZapatillasComponent
@@ -23,10 +23,16 @@ const appRoutes: Routes = [
         path: 'cursos', component: CursosComponent
     },
     {
+        path: 'cursos/:nombre', component: CursosComponent
+    },
+    {
+        path: 'cursos/:nombre/:followers', component: CursosComponent
+    },
+    {
         path: '**', component: HomeComponent
     }
 ];
 
 //Exportar el modulo del router
-export const appRoutingProviders: any[]=[];
+export const appRoutingProviders: any[] = [];
 export const routing: ModuleWithProviders<any> = RouterModule.forRoot(appRoutes);

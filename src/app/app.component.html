@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 
-<div class="container h-100">
-  <div class="row m-0 justify-content-center mt-4 pt-4 vh-100">
+<div class="container mb-4">
+  <div class="row m-0 justify-content-center mt-4 pt-4 vh-75">
 
     <div class="col-12 text-center" [ngStyle]="{
        'background': config.fondo,
@@ -11,8 +11,21 @@
        'border': 'black solid 1px'
       }">
 
+
       <h1>Bienvenido al {{ title }}</h1>
       <p>{{ descripcion }}</p>
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-success">
+        <div class="navbar-nav">
+          <a [routerLink]="['/home']" routerLinkActive="router-link-active bg-light" class="nav-item nav-link">Inicio</a>
+          <a [routerLink]="['zapatillas']" routerLinkActive="router-link-active bg-light"
+            class="nav-item nav-link">Zapatillas</a>
+          <a [routerLink]="['cursos']" routerLinkActive="router-link-active bg-light"
+            class="nav-item nav-link">Cursos</a>
+          <a [routerLink]="['videojuego']" routerLinkActive="router-link-active bg-light"
+            class="nav-item nav-link">Videojuego</a>
+        </div>
+      </nav>
 
       <!-- <button (click)="ocultarVideojuegos(false)" class="btn btn-secondary mr-4" *ngIf="mostrar_videojuegos">Ocultar videojuegos</button> -->
       <!-- <button (click)="ocultarVideojuegos(true)" class="btn btn-dark " *ngIf="!mostrar_videojuegos">Mostrar videojuegos</button> -->
@@ -22,7 +35,7 @@
       <zapatillas></zapatillas> -->
 
       <!-- <cursos></cursos> -->
-
+      <hr>
       <router-outlet></router-outlet>
     </div>
   </div>
