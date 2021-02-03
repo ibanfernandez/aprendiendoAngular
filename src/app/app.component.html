@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+<div class="container h-100">
+  <div class="row m-0 justify-content-center mt-4 pt-4 vh-100">
+
+    <div class="col-12 text-center" [ngStyle]="{
+       'background': config.fondo,
+       'color': config.color,
+       'padding': config.padding,
+       'border': 'black solid 1px'
+      }">
+
+      <h1>Bienvenido al {{ title }}</h1>
+      <p>{{ descripcion }}</p>
+
+      <!-- <button (click)="ocultarVideojuegos(false)" class="btn btn-secondary mr-4" *ngIf="mostrar_videojuegos">Ocultar videojuegos</button> -->
+      <!-- <button (click)="ocultarVideojuegos(true)" class="btn btn-dark " *ngIf="!mostrar_videojuegos">Mostrar videojuegos</button> -->
+      <!-- <videojuego *ngIf="mostrar_videojuegos" style="border: 1px black solids;"></videojuego> -->
+
+      <!-- <br><br><hr>
+      <zapatillas></zapatillas> -->
+
+      <!-- <cursos></cursos> -->
+
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
