@@ -1,0 +1,14 @@
+<input type="text" [(ngModel)]="userId" (keyUp.enter)="cargaUsuario()" class="mb-3">
+<div *ngIf="!user">
+    <div class="lds-hourglass"></div>
+</div>
+<div *ngIf="user">
+    <img src="{{user.avatar}}" width="200px" alt="">
+    <h2>
+        {{ user.first_name + ' ' + user.last_name }}
+    </h2>
+    <h3>
+        {{user.email }}
+    </h3>
+  
+</div>

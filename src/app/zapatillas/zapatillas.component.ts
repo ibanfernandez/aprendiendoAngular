@@ -1,11 +1,11 @@
-import { registerLocaleData } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Config } from 'protractor';
 import { Zapatilla } from "../models/zapatilla";
+import { ZapatillaService } from "../services/zapatillas.service";
 
 @Component({
     selector: 'zapatillas',
-    templateUrl: './zapatillas.component.html'
+    templateUrl: './zapatillas.component.html',
+    providers: [ZapatillaService]
 })
 
 export class ZapatillasComponent {
@@ -13,30 +13,26 @@ export class ZapatillasComponent {
     public zapatillas: Array<Zapatilla>;
     public marcas: string[];
     public color: string;
-    public mi_marca:string;
+    public mi_marca: string;
 
-    constructor() {
-        this.mi_marca="";
+    constructor(
+        private _zapatillaService: ZapatillaService
+    ) {
+        this.zapatillas = [];
+        this.mi_marca = "";
         this.color = 'orange';
         this.marcas = [];
-        this.zapatillas = [
-            new Zapatilla('New Styles', "Adidas", "Rojo", 50, true),
-            new Zapatilla('Nike runner', "Nike", "Blanco", 100, true),
-            new Zapatilla('507', "New Balance", "Negro", 75, true),
-            new Zapatilla('Airmax', "Nike", "Negro", 190, false),
-            new Zapatilla('35', "Sketchers", "Negro", 40, false)
-        ]
+
     }
 
     ngOnInit(): void {
-        console.log(this.zapatillas);
+        this.zapatillas = this._zapatillaService.getZapatillas();
         this.getMarcas();
-
     }
 
     getMarcas() {
         this.zapatillas.forEach((zapatilla, index) => {
-            if(this.marcas.indexOf(zapatilla.marca) < 0){
+            if (this.marcas.indexOf(zapatilla.marca) < 0) {
                 this.marcas.push(zapatilla.marca);
             }
         });
@@ -45,25 +41,25 @@ export class ZapatillasComponent {
 
     }
 
-    getMarca(){
+    getMarca() {
         alert(this.mi_marca);
     }
 
-    addMarca(){
+    addMarca() {
         this.marcas.push(this.mi_marca);
     }
 
 
-    borrarMarca(indice:number){
-       // delete this.marcas[indice];
-       this.marcas.splice(indice, 1);
+    borrarMarca(indice: number) {
+        // delete this.marcas[indice];
+        this.marcas.splice(indice, 1);
     }
 
-    onBlur(){
+    onBlur() {
         console.log('Has salido del input');
     }
 
-    mostrarPalabra(){
+    mostrarPalabra() {
         alert(this.mi_marca);
     }
 }
