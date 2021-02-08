@@ -5,7 +5,7 @@
     <input type="text" [(ngModel)]="mi_marca" (blur)="onBlur()" (keyup.enter)="mostrarPalabra()" />
     <button (click)="getMarca()" class="btn btn-primary mx-4">Obtener marca</button>
     <button (click)="addMarca()" class="btn btn-secondary mx-4">Añadir marca</button>
-    
+
 </p>
 <strong>{{mi_marca}}</strong>
 
@@ -26,19 +26,18 @@
             'text-decoration': !item.stock ? 'line-through' : 'none'
         }">
             {{item.marca}} {{item.nombre}} -
-            <strong [class.altoPrecio]="item.precio>=80"
-               [ngClass]="{
+            <strong [class.altoPrecio]="item.precio>=80" [ngClass]="{
                    'fondoRojo': item.precio >100,
                    'subrayado': item.marca == 'Nike'
-                }" 
-               >
+                }">
                 {{item.precio}}€
             </strong>
         </span>
 
-        <span *ngIf="item.precio<=80" [style.background]="item.precio <= 80 ? 'green' : 'transparent'"
+        <span *ngIf="item.precio<=80"
+            [style.background]="item.precio <= 80 ? 'green' : 'transparent'"
             [style.color]="item.precio <= 80 ? 'white' : 'black' ">
-            
+
             ¡En oferta!
         </span>
 
