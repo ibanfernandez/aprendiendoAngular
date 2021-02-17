@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CalculadoraPipe } from 'src/app/pipes/calculadora.pipe';
 
 
 import { VideojuegoComponent } from './videojuego/videojuego.component';
@@ -12,6 +13,7 @@ import { ZapatillasComponent } from './zapatillas/zapatillas.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { HomeComponent } from './home/home.component';
 import { ExternoComponent } from './externo/externo.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { ExternoComponent } from './externo/externo.component';
     CursosComponent,
     HomeComponent,
     ExternoComponent,
+    CalculadoraPipe,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,

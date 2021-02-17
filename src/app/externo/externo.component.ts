@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PeticionesService } from '../services/peticiones.service';
 
+
 @Component({
   selector: 'app-externo',
   templateUrl: './externo.component.html',
@@ -11,15 +12,23 @@ export class ExternoComponent implements OnInit {
 
   public user: any;
   public userId: any;
+  public fecha: any;
+  public new_user: any;
+  public usuario_guardado;
 
   constructor(
     private _peticionesService: PeticionesService
   ) {
     this.userId = 1;
+    this.new_user = {
+      "name": "",
+      "job": ""
+    }
   }
 
   ngOnInit() {
     this.cargaUsuario();
+    this.fecha = new Date();
   }
 
   cargaUsuario() {
@@ -43,6 +52,19 @@ export class ExternoComponent implements OnInit {
 
   sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  onSubmit(form) {
+    this._peticionesService.addUser(this.new_user).subscribe(
+      response => {
+        console.log(response);
+        this.usuario_guardado = response;
+        form.reset();
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
 }
